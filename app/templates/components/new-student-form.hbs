@@ -1,0 +1,62 @@
+<!-- Primary Page Layout
+     - --––----–--–--–-–-–-–-–-––-––-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–-–---–---->
+      <div class="container">
+        <div class="row">
+            <div class="u-max-full-width" id="form">
+                <h5 class="title"><span id="dot">●</span> New Student <span id="dot">●</span></h5>
+                <form>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="exampleEmailInput">Number</label>
+                        {{input class="u-full-width" value=number type="text" placeholder="##########" }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="exampleEmailInput">First Name</label>
+                        {{input class="u-full-width" value=firstName type="text" placeholder="john" }}
+                    </div>
+                    <div class="six columns">
+                        <label for="exampleEmailInput">Last Name</label>
+                        {{input class="u-full-width" value=lastName type="text" placeholder="doe"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="exampleRecipientInput">DOB</label>
+                        <input class="u-full-width" value={{selectedDate}} id="birthDate" type="date" onchange={{action 'assignDate' value="target.value"}}>
+                    </div>
+                    <div class="six columns">
+                        <label>Residency</label>
+                        <select onchange={{action 'selectResidency' value="target.value"}} >
+                            {{#each residencyModel as |residencyChoice|}}
+                                <option value={{residencyChoice.id}} >{{residencyChoice.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="three columns">
+                        <label>Gender</label>
+                        <select class="u-full-width" onchange={{action 'selectGender' value="target.value"}} >
+                            {{#each genderModel as |genderChoice|}}
+                                <option value={{genderChoice.id}} >{{genderChoice.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <!--div class="three columns">
+                        <label for="exampleRecipientInput">Academic Load</label>
+                        <select class="u-full-width" onchange={{action 'selectAcademicLoad' value="target.value"}} >
+                            {{#each academicLoadModel as |academicLoadChoice|}}
+                                <option value={{academicLoadChoice.id}} >{{academicLoadChoice.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div-->
+                </div>
+                <div class="row">
+                    <input class="button-primary" type="submit" value="Submit" {{action 'saveStudent'}}>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
